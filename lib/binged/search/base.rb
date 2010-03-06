@@ -27,13 +27,13 @@ module Binged
       end
 
       def each
-        fetch()["Results"].each { |r| yield r }
+        fetch().results.each { |r| yield r }
       end
 
       private
 
         def default_options
-          { :JsonType => 'raw', :Version => '2.2', :AppId => @client.api_key }
+          {:AppId => @client.api_key, :JsonType => 'raw', :Version => '2.2'  }
         end
 
     end
