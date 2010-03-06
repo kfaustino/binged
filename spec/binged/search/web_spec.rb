@@ -13,7 +13,11 @@ module Binged
       it "should initialize with a search term" do
         Web.new(@client, 'binged').query[:Query].should include('binged')
       end
-
+      
+      it "should be able to specify a site to limit searches to" do
+        @search.from_site('adventuresincoding.com')
+        @search.query[:Query].should include('site:adventuresincoding.com')
+      end
 
       it "should be able to specify the number of results per page" do
         @search.per_page(10)
@@ -28,13 +32,12 @@ module Binged
       it "should be able to set a file type" do
         @search.file_type(:pdf)
         @search.query['Web.FileType'].should == :pdf
-      end
-      
+      end      
 
       context "fetching" do
 
         before(:each) do
-          stub_get("http://api.bing.net/json.aspx?Web.Offset=0&Sources=Web&AppId=binged&Query=ruby&JsonType=raw&Version=2.2&Web.Count=20", 'web.json')
+          stub_get("http://api.bing.net/json.aspx?Web.Offset=0&Sources=web&AppId=binged&Query=ruby&JsonType=raw&Version=2.2&Web.Count=20", 'web.json')
           @search.containing("ruby")
           @response = @search.fetch
         end

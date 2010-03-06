@@ -2,33 +2,38 @@ module Binged
   module Search
     class Web < Base
 
-      SupportedFileTypes = [:doc, :dwf, :feed, :htm, :html, :pdf, :ppt, :ps, :rtf, :text, :txt, :xls]
+      SUPPORTED_FILE_TYPES = [:doc, :dwf, :feed, :htm, :html, :pdf, :ppt, :ps, :rtf, :text, :txt, :xls]
 
       attr_reader :results_per_page, :page_number
 
       def initialize(client, query=nil, options={})
         super(client)
-        @query[:Sources] = 'Web'
+        @source = :web
         per_page(20).page(1)
         containing(query) if query && query.strip != ''
       end
 
       def containing(query)
-        @query[:Query] = query
+        @query[:Query] << query
         self
       end
 
       def fetch
-        if @fetch.nil?
+        if @fetch.nil?    
           response = perform
           @fetch = Hashie::Mash.new(response["SearchResponse"]["Web"]) if response
         end
 
         @fetch || []
       end
-      
+            
       def file_type(type)        
-        @query['Web.FileType'] = type if SupportedFileTypes.include?(type)
+        @query['Web.FileType'] = type if SUPPORTED_FILE_TYPES.include?(type)
+        self
+      end
+      
+      def from_site(site)
+        @query[:Query] << "site:#{site}"
         self
       end
 
