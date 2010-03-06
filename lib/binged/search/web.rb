@@ -2,6 +2,8 @@ module Binged
   module Search
     class Web < Base
 
+      SupportedFileTypes = [:doc, :dwf, :feed, :htm, :html, :pdf, :ppt, :ps, :rtf, :text, :txt, :xls]
+
       attr_reader :results_per_page, :page_number
 
       def initialize(client, query=nil, options={})
@@ -23,6 +25,11 @@ module Binged
         end
 
         @fetch || []
+      end
+      
+      def file_type(type)        
+        @query['Web.FileType'] = type if SupportedFileTypes.include?(type)
+        self
       end
 
       # The page of the results to fetch

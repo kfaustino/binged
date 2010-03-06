@@ -25,6 +25,12 @@ module Binged
         @search.query['Web.Offset'].should == @search.results_per_page * 2
       end
 
+      it "should be able to set a file type" do
+        @search.file_type(:pdf)
+        @search.query['Web.FileType'].should == :pdf
+      end
+      
+
       context "fetching" do
 
         before(:each) do
