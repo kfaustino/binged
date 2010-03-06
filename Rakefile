@@ -10,7 +10,10 @@ begin
     gem.email = "kevin.faustino@gmail.com"
     gem.homepage = "http://github.com/kfaustino/binged"
     gem.authors = ["Kevin Faustino"]
-    gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_dependency "hashie", "~>0.1.0"
+    gem.add_dependency "crack", ">=0.1.6"
+    gem.add_development_dependency "rspec", ">= 1.3.0"
+    gem.add_development_dependency "fakeweb", ">=1.2.8"
     gem.add_development_dependency "yard", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

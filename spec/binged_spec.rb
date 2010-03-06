@@ -1,7 +1,14 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require 'spec_helper'
 
 describe "Binged" do
-  it "fails" do
-    fail "hey buddy, you should probably rename this file and start specing for real"
+
+  it "should configure the api_key for easy access" do    
+    Binged.configure do |config|
+      config.api_key = 'api_key'
+    end
+    
+    @client = Binged::Client.new
+    @client.api_key.should == 'api_key'
   end
+  
 end
