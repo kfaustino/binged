@@ -1,11 +1,14 @@
 module Binged
   module Search
+    
+    # @abstract Subclass and override {#fetch} to implement a custom Searchable class
     class Base
       include Enumerable
       attr_reader :client, :query, :source
 
       BASE_URI = 'http://api.bing.net/json.aspx?'
 
+      # @param [Binged::Client] client
       def initialize(client)
         @client = client
         reset_query
@@ -17,7 +20,13 @@ module Binged
         reset_query
         self
       end
+      
+      def fetch
+      end
 
+      # Performs a GET call to Bing API
+      # 
+      # @return [Hash] Hash of Bing API response
       def perform
         url = URI.parse BASE_URI
         query = @query.dup
@@ -29,6 +38,7 @@ module Binged
         Crack::JSON.parse(response)
       end
 
+      # @yieldreturn [Hash] A result from a Bing query
       def each
         fetch().results.each { |r| yield r }
       end

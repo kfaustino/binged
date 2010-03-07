@@ -26,7 +26,7 @@ module Binged
 
       it "should be able to specify the page number" do
         @search.page(3)
-        @search.query['Web.Offset'].should == @search.results_per_page * 2
+        @search.query['Web.Offset'].should == 20 * 2
       end
 
       it "should be able to set a file type" do
@@ -48,7 +48,7 @@ module Binged
         end
 
         it "should return the results of the search" do
-          @response.results.size.should == @search.results_per_page
+          @response.results.size.should == 20
         end
 
         it "should support dot notation" do

@@ -1,3 +1,5 @@
+# Ensures all Hash keys follow ruby idioms
+# @private
 module Hashie
   class Mash < Hashie::Hash
     protected
