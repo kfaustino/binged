@@ -85,18 +85,6 @@ module Binged
         self
       end
 
-      # The total amount of pages available
-      #
-      # @return[Fixnum] Amount of pages
-      def total_pages
-        bing_total = fetch.total.to_i
-        if bing_total < SEARCH_RESULTS_LIMIT
-          bing_total / @results_per_page
-        else
-          SEARCH_RESULTS_LIMIT / @results_per_page
-        end
-      end
-
     end
   end
 end
