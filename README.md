@@ -1,6 +1,6 @@
-# Binged
+# Overview
 
-## Description
+## About Binged
 
 A Ruby wrapper for the Bing API
 
