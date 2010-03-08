@@ -1,14 +1,16 @@
 # Binged
 
+## Description
+
 A Ruby wrapper for the Bing API
 
 ## Installation
 
     [sudo] gem install binged
 
-## Get Your Bing API key
+### Get Your Bing API key
 
-  To use binged, you will require a Bing API key. Create one at: [http://www.bing.com/developers/createapp.aspx](http://www.bing.com/developers/createapp.aspx)
+To use binged, you will require a Bing API key. Create one at: [http://www.bing.com/developers/createapp.aspx](http://www.bing.com/developers/createapp.aspx)
 
 ## Usage
 
