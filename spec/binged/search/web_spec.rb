@@ -50,12 +50,27 @@ module Binged
         it "should return the results of the search" do
           @response.results.size.should == 20
         end
-
+        
         it "should support dot notation" do
           result = @response.results.first
           result.title.should == "Ruby Programming Language"
           result.description.should == "Ruby is… A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is ..."
           result.url.should == "http://www.ruby-lang.org/en/"
+        end
+        
+        context "total pages" do
+          
+          it "should return of maximum amount of pages that does not exceed the the Bing limit" do
+            bing_limit = 1000
+            @response.should_receive(:total).and_return(bing_limit + 1)
+            @search.total_pages.should == 50
+          end
+          
+          it "should calculate the total amount of pages if the Bing results are less than the maximum limit" do
+            @response.should_receive(:total).and_return(500)
+            @search.total_pages.should == 25
+          end                  
+          
         end
 
       end

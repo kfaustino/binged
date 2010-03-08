@@ -1,10 +1,12 @@
 module Binged
   module Search
-    
+
     # A class that encapsulated the Bing Web Search source
     # @todo Add support for adult and market filtering
     class Web < Base
-      
+
+      SEARCH_RESULTS_LIMIT = 1000
+
       SUPPORTED_FILE_TYPES = [:doc, :dwf, :feed, :htm, :html, :pdf, :ppt, :ps, :rtf, :text, :txt, :xls]
 
       # @param [Binged::Client] client
@@ -18,7 +20,7 @@ module Binged
       end
 
       # Add query to search
-      # 
+      #
       # @param [String] query The search term to be sent to Bing
       # @return [self]
       def containing(query)
@@ -26,36 +28,36 @@ module Binged
         self
       end
 
-      # Retrieve results of the web search
-      # 
+      # Retrieve results of the web search. Limited to first 1000 results.
+      #
       # @return [Hash] A hash of the results returned from Bing
       def fetch
-        if @fetch.nil?    
+        if @fetch.nil?
           response = perform
           @fetch = Hashie::Mash.new(response["SearchResponse"]["Web"])
         end
 
         @fetch
       end
-            
+
       # Add filtering based on a file type
-      # 
+      #
       # @example
       #   web_search.file_type(:pdf) # Isolate search to PDF files
-      # 
+      #
       # @param [Symbol] type A symbol of a {SUPPORTED_FILE_TYPES}
       # @return [self]
       # @see http://msdn.microsoft.com/en-us/library/dd250876.aspx Description of all supported file types
-      def file_type(type)        
+      def file_type(type)
         @query['Web.FileType'] = type if SUPPORTED_FILE_TYPES.include?(type)
         self
       end
-      
-      # Isolate search results to a specific site      
-      #  
+
+      # Isolate search results to a specific site
+      #
       # @example
       #   web_search.from_site('www.ruby-lang.org')
-      # 
+      #
       # @param [String] site Web site address to limit search results to
       # @return [self]
       def from_site(site)
@@ -64,23 +66,35 @@ module Binged
       end
 
       # Set the page number of the results to display
-      # 
+      #
       # @param [Fixnum] num The page number of the search results
       # @return [self]
       def page(num=1)
-        offset = num - 1
-        @query['Web.Offset'] = @results_per_page * offset
+        @offset = num - 1
+        @query['Web.Offset'] = @results_per_page * @offset
         self
       end
 
       # The amount of results to display per page. Initialized to 20 per page.
-      # 
+      #
       # @param [Fixnum] num The number of results per page
       # @return [self]
       def per_page(num)
         @results_per_page = num
         @query['Web.Count'] = @results_per_page
         self
+      end
+
+      # The total amount of pages available
+      #
+      # @return[Fixnum] Amount of pages
+      def total_pages
+        bing_total = fetch.total.to_i
+        if bing_total < SEARCH_RESULTS_LIMIT
+          bing_total / @results_per_page
+        else
+          SEARCH_RESULTS_LIMIT / @results_per_page
+        end
       end
 
     end
