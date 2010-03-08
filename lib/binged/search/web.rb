@@ -32,10 +32,10 @@ module Binged
       def fetch
         if @fetch.nil?    
           response = perform
-          @fetch = Hashie::Mash.new(response["SearchResponse"]["Web"]) if response
+          @fetch = Hashie::Mash.new(response["SearchResponse"]["Web"])
         end
 
-        @fetch || []
+        @fetch
       end
             
       # Add filtering based on a file type
