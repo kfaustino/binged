@@ -15,7 +15,7 @@ module Binged
       def initialize(client, query=nil, options={})
         super(client, query)
         @source = :web
-        per_page(20).page(1)
+        set_paging_defaults
       end
 
       # Add filtering based on a file type

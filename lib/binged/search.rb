@@ -28,6 +28,12 @@ module Binged
         self
       end
       
+      protected
+      
+        def set_paging_defaults
+          self.per_page(20).page(1)
+        end
+      
     end
     
     module Filter

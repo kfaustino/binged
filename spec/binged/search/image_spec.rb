@@ -16,6 +16,28 @@ module Binged
         Image.new(@client, 'binged').query[:Query].should include('binged')
       end
 
+      context "filtering" do
+
+        describe "size" do
+          it "should filter by small images" do
+            @search.small
+            @search.query['Image.Filters'].should include('Size:Small')
+          end
+
+          it "should filter by medium images" do
+            @search.medium
+            @search.query['Image.Filters'].should include('Size:Medium')
+          end
+          
+          it "should filter by large images" do
+            @search.large
+            @search.query['Image.Filters'].should include('Size:Large')
+          end
+
+        end
+
+      end
+
       context "fetching" do
 
         before(:each) do
