@@ -2,7 +2,7 @@
 
 ## About Binged
 
-A Ruby wrapper for the Bing API
+A Ruby wrapper for the Bing API. DSL inspired by jnunemaker's [Twitter Gem](http://github.com/jnunemaker/twitter) Search API wrapper.
 
 ## Installation
 
@@ -31,11 +31,15 @@ Binged allows for configuration to be done once using a configure block. To use 
 
 ### Web Search Example
 
-Web search utilizes a criteria based query interface inspired by jnunemaker's [Twitter Gem](http://github.com/jnunemaker/twitter) Search API wrapper.
-
     # Find 30 results for ruby from site http://www.ruby-lang.org
     web_search = Binged::Client.new.web
-    web_search.containing('ruby').from_site('www.ruby-lang.org').per_page(30).each {|result| puts result.title }
+    web_search.containing('ruby').from_site('www.ruby-lang.org').per_page(30).each {|result| pp result }
+
+### Image Search Example
+
+    # Find all portrait Matz images with a wide aspect ratio
+    image_search = Binged::Client.new.image
+    image_search.containing('Yukihiro Matsumoto').portrait.wide.each {|image| pp image}
     
 ## Note on Patches/Pull Requests
  
