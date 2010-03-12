@@ -30,10 +30,16 @@ module Binged
         filter << 'Size:Large'
       end
 
+      # Restrict images to the specified height in pixels
+      # 
+      # @params [Fixnum] pixels height in pixels      
       def height(pixels)
         filter << "Size:Height:#{pixels}"
       end
 
+      # Restrict images to the specified width in pixels
+      # 
+      # @params [Fixnum] pixels width in pixels
       def width(pixels)
         filter << "Size:Width:#{pixels}"
       end

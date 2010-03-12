@@ -38,18 +38,18 @@ module Binged
 
         describe "size" do
 
-          it "should filter for images with a maximum height in pixels" do
+          it "should filter for images with a specified height in pixels" do
             @search.height 100
             @search.query['Image.Filters'].should include('Size:Height:100')
           end
           
-          it "should filter for images with a maximum width in pixels" do
+          it "should filter for images with a specified width in pixels" do
             @search.width 150
             @search.query['Image.Filters'].should include('Size:Width:150')
           end
 
         end
-
+        
       end
 
       context "fetching" do
