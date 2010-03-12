@@ -13,6 +13,7 @@ module Binged
         super(client, query)
         @source = :image
         set_paging_defaults
+        create_filter_callback
       end
 
       # Restrict images to those small in size
@@ -104,6 +105,10 @@ module Binged
       end
 
       private
+
+        def create_filter_callback
+          @callbacks << Proc.new { |query| query['Image.Filters'] = query['Image.Filters'].join('+') if query['Image.Filters'] }
+        end
 
         def filter
           @query['Image.Filters'] ||= []

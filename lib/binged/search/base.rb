@@ -1,6 +1,6 @@
 module Binged
   module Search
-    
+
     # @abstract Subclass and set @source to implement a custom Searchable class
     class Base
       include Enumerable
@@ -12,6 +12,7 @@ module Binged
       # @param [String] query The search term to be sent to Bing
       def initialize(client, query=nil)
         @client = client
+        @callbacks = []
         reset_query
         containing(query) if query && query.strip != ''
       end
@@ -31,7 +32,7 @@ module Binged
         reset_query
         self
       end
-      
+
       # Retrieve results of the web search. Limited to first 1000 results.
       #
       # @return [Hash] A hash of the results returned from Bing
@@ -43,16 +44,18 @@ module Binged
 
         @fetch
       end
-            
+
       # Performs a GET call to Bing API
-      # 
+      #
       # @return [Hash] Hash of Bing API response
       def perform
         url = URI.parse BASE_URI
         query = @query.dup
-        query[:Query] = query[:Query].join(' ')      
+        query[:Query] = query[:Query].join(' ')
         query[:Sources] = self.source
+        callbacks.each {|callback| callback.call(query) }
         query_options = default_options.merge(query).to_params
+        query_options.gsub! '%2B', '+'
         url.query = query_options
         response = Net::HTTP.get(url)
         Crack::JSON.parse(response)
@@ -63,6 +66,10 @@ module Binged
         fetch().results.each { |r| yield r }
       end
 
+      protected
+
+        attr_reader :callbacks
+
       private
 
         def default_options
@@ -70,8 +77,9 @@ module Binged
         end
 
         def reset_query
-           @query = { :Query => [] }
+          @query = { :Query => [] }
         end
+        
     end
 
   end
