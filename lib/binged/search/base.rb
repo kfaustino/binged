@@ -1,7 +1,7 @@
 module Binged
   module Search
     
-    # @abstract Subclass and override {#fetch} to implement a custom Searchable class
+    # @abstract Subclass and set @source to implement a custom Searchable class
     class Base
       include Enumerable
       attr_reader :client, :query, :source
@@ -9,9 +9,20 @@ module Binged
       BASE_URI = 'http://api.bing.net/json.aspx?'
 
       # @param [Binged::Client] client
-      def initialize(client)
+      # @param [String] query The search term to be sent to Bing
+      def initialize(client, query=nil)
         @client = client
         reset_query
+        containing(query) if query && query.strip != ''
+      end
+
+      # Add query to search
+      #
+      # @param [String] query The search term to be sent to Bing
+      # @return [self]
+      def containing(query)
+        @query[:Query] << query
+        self
       end
 
       # Clears all filters to perform a new search
@@ -21,9 +32,18 @@ module Binged
         self
       end
       
+      # Retrieve results of the web search. Limited to first 1000 results.
+      #
+      # @return [Hash] A hash of the results returned from Bing
       def fetch
-      end
+        if @fetch.nil?
+          response = perform
+          @fetch = Hashie::Mash.new(response["SearchResponse"][self.source.to_s.capitalize])
+        end
 
+        @fetch
+      end
+            
       # Performs a GET call to Bing API
       # 
       # @return [Hash] Hash of Bing API response

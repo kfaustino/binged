@@ -7,6 +7,7 @@ require 'fakeweb'
 require 'binged'
 
 FakeWeb.allow_net_connect = false
+Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
 
 Spec::Runner.configure do |config|
   
@@ -23,7 +24,7 @@ def fixture_file(filename)
 end
 
 def stub_get(url, filename, options={})
-  fakeweb_options = {:body => fixture_file(filename)}.merge(options)  
+  fakeweb_options = {:response => fixture_file(filename)}.merge(options)  
   FakeWeb.register_uri(:get, url, fakeweb_options)
 end
 

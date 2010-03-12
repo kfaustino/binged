@@ -3,34 +3,29 @@ require 'spec_helper'
 module Binged
   module Search
 
-    describe "Web" do
+    describe "Image" do
       include AnyFilter
       include AnyPageable
 
       before(:each) do
         @client = Binged::Client.new(:api_key => 'binged')
-        @search = Web.new(@client)
+        @search = Image.new(@client)
       end
 
       it "should initialize with a search term" do
-        Web.new(@client, 'binged').query[:Query].should include('binged')
-      end
-
-      it "should be able to set a file type" do
-        @search.file_type(:pdf)
-        @search.query['Web.FileType'].should == :pdf
+        Image.new(@client, 'binged').query[:Query].should include('binged')
       end
 
       context "fetching" do
 
         before(:each) do
-          stub_get("http://api.bing.net/json.aspx?Web.Offset=0&Sources=web&AppId=binged&Query=ruby&JsonType=raw&Version=2.2&Web.Count=20", 'web.json')
+          stub_get("http://api.bing.net/json.aspx?AppId=binged&JsonType=raw&Image.Offset=0&Image.Count=20&Sources=image&Version=2.2&Query=ruby", 'images.json')
           @search.containing("ruby")
           @response = @search.fetch
         end
 
         it "should cache fetch to eliminate multiple calls to the api" do
-          Web.should_not_receive(:perform)
+          Image.should_not_receive(:perform)
           @search.fetch
         end
 
@@ -40,9 +35,13 @@ module Binged
 
         it "should support dot notation" do
           result = @response.results.first
-          result.title.should == "Ruby Programming Language"
-          result.description.should == "Ruby is… A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is ..."
-          result.url.should == "http://www.ruby-lang.org/en/"
+          result.title.should == "ruby is said to give name ... "
+          result.media_url.should == "http://www.shopping.astrolozy.com/images/gems/ruby.jpg"
+          result.url.should == 'http://www.shopping.astrolozy.com/gems.asp'
+          result.width.should == 506
+          result.height.should == 500
+          result.file_size.should == 23354
+          result.content_type.should == 'image/jpeg'
         end
 
       end
@@ -50,7 +49,7 @@ module Binged
       context "iterating over results" do
 
         before(:each) do
-          stub_get("http://api.bing.net/json.aspx?Web.Offset=0&Sources=Web&AppId=binged&Query=ruby&JsonType=raw&Version=2.2&Web.Count=20", 'web.json')
+          stub_get("http://api.bing.net/json.aspx?AppId=binged&JsonType=raw&Image.Offset=0&Image.Count=20&Sources=image&Version=2.2&Query=ruby", 'images.json')
           @search.containing("ruby")
         end
 
