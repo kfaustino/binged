@@ -78,6 +78,16 @@ module Binged
       def monochrome
         filter << "Color:Monochrome"
       end
+      
+      # Restrict images to those which contain faces
+      def face
+        filter << 'Face:Face'
+      end
+      
+      # Restrict images to those which contain portraits(head and shoulders)
+      def portrait
+        filter << 'Face:Portrait'
+      end
 
       private
 

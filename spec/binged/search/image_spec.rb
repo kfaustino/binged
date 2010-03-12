@@ -89,6 +89,19 @@ module Binged
 
         end
 
+        describe "faces" do
+
+          %w(Face Portrait).each do |face|
+
+            it "should restrict image results to those which contain a #{face}" do
+              @search.send face.downcase.to_sym
+              @search.query["Image.Filters"].should include("Face:#{face}")
+            end
+
+          end
+
+        end
+
       end
 
       context "fetching" do
