@@ -28,10 +28,24 @@ module Binged
             @search.medium
             @search.query['Image.Filters'].should include('Size:Medium')
           end
-          
+
           it "should filter by large images" do
             @search.large
             @search.query['Image.Filters'].should include('Size:Large')
+          end
+
+        end
+
+        describe "size" do
+
+          it "should filter for images with a maximum height in pixels" do
+            @search.height 100
+            @search.query['Image.Filters'].should include('Size:Height:100')
+          end
+          
+          it "should filter for images with a maximum width in pixels" do
+            @search.width 150
+            @search.query['Image.Filters'].should include('Size:Width:150')
           end
 
         end

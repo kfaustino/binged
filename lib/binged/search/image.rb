@@ -19,15 +19,23 @@ module Binged
       def small
         filter << 'Size:Small'
       end
-      
+
       # Restict images to those medium in size
       def medium
         filter << 'Size:Medium'
       end
-      
+
       # Restrict images to those large in size
       def large
         filter << 'Size:Large'
+      end
+
+      def height(pixels)
+        filter << "Size:Height:#{pixels}"
+      end
+
+      def width(pixels)
+        filter << "Size:Width:#{pixels}"
       end
 
       private
