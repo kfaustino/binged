@@ -64,6 +64,16 @@ module Binged
         filter << "Color:Color"
       end
       
+      # Restrict images to those which contain photos
+      def photo
+        filter << "Style:Photo"
+      end
+      
+      # Restrict images to those which contain graphics or illustrations
+      def graphics
+        filter << "Style:Graphics"
+      end
+      
       # Restrict images to those that are in black and white
       def monochrome
         filter << "Color:Monochrome"

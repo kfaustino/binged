@@ -51,29 +51,42 @@ module Binged
         end
 
         describe "aspect" do
-          
+
           %w(Square Wide Tall).each do |aspect|
-            
+
             it "should restrict image results to those with #{aspect} aspect ratios" do
               @search.send aspect.downcase.to_sym
               @search.query['Image.Filters'].should include("Aspect:#{aspect}")
             end
-            
+
           end
 
         end
-        
+
         describe "color" do
-          
+
           %w(Color Monochrome).each do |color|
-            
+
             it "should restrict image results to those which are in #{color}" do
               @search.send color.downcase.to_sym
               @search.query["Image.Filters"].should include("Color:#{color}")
             end
-            
+
           end
-          
+
+        end
+
+        describe "style" do
+
+          %w(Photo Graphics).each do |style|
+
+            it "should restrict image results to those which have a #{style} style" do
+              @search.send style.downcase.to_sym
+              @search.query["Image.Filters"].should include("Style:#{style}")
+            end
+
+          end
+
         end
 
       end
