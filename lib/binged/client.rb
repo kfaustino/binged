@@ -17,6 +17,13 @@ module Binged
     def web(query='')
       Search::Web.new(self,query)
     end
+    
+    # Create a image search through Bing
+    # 
+    # @param [String] query The search term to be sent to Bing
+    def image(query='')
+      Search::Image.new(self,query)
+    end
 
   end
 
