@@ -31,17 +31,32 @@ module Binged
       end
 
       # Restrict images to the specified height in pixels
-      # 
-      # @params [Fixnum] pixels height in pixels      
+      #
+      # @params [Fixnum] pixels height in pixels
       def height(pixels)
         filter << "Size:Height:#{pixels}"
       end
 
       # Restrict images to the specified width in pixels
-      # 
+      #
       # @params [Fixnum] pixels width in pixels
       def width(pixels)
         filter << "Size:Width:#{pixels}"
+      end
+
+      # Restict images to those that have a square aspect ratio
+      def square
+        filter << "Aspect:Square"
+      end
+
+      # Restict images to those that have a wide aspect ratio
+      def wide
+        filter << "Aspect:Wide"
+      end
+
+      # Restict images to those that have a tall aspect ratio
+      def tall
+        filter << "Aspect:Tall"
       end
 
       private

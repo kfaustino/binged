@@ -42,14 +42,27 @@ module Binged
             @search.height 100
             @search.query['Image.Filters'].should include('Size:Height:100')
           end
-          
+
           it "should filter for images with a specified width in pixels" do
             @search.width 150
             @search.query['Image.Filters'].should include('Size:Width:150')
           end
 
         end
-        
+
+        describe "aspect" do
+          
+          %w(Square Wide Tall).each do |aspect|
+            
+            it "should restrict image results to those with #{aspect} aspect ratios" do
+              @search.send aspect.downcase.to_sym
+              @search.query['Image.Filters'].should include("Aspect:#{aspect}")
+            end
+            
+          end
+
+        end
+
       end
 
       context "fetching" do
