@@ -15,12 +15,12 @@ module Binged
         set_paging_defaults
       end
 
-      # Restict images to those small in size
+      # Restrict images to those small in size
       def small
         filter << 'Size:Small'
       end
 
-      # Restict images to those medium in size
+      # Restrict images to those medium in size
       def medium
         filter << 'Size:Medium'
       end
@@ -44,17 +44,17 @@ module Binged
         filter << "Size:Width:#{pixels}"
       end
 
-      # Restict images to those that have a square aspect ratio
+      # Restrict images to those that have a square aspect ratio
       def square
         filter << "Aspect:Square"
       end
 
-      # Restict images to those that have a wide aspect ratio
+      # Restrict images to those that have a wide aspect ratio
       def wide
         filter << "Aspect:Wide"
       end
 
-      # Restict images to those that have a tall aspect ratio
+      # Restrict images to those that have a tall aspect ratio
       def tall
         filter << "Aspect:Tall"
       end
