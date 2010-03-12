@@ -46,37 +46,37 @@ module Binged
 
       # Restrict images to those that have a square aspect ratio
       def square
-        filter << "Aspect:Square"
+        filter << 'Aspect:Square'
       end
 
       # Restrict images to those that have a wide aspect ratio
       def wide
-        filter << "Aspect:Wide"
+        filter << 'Aspect:Wide'
       end
 
       # Restrict images to those that have a tall aspect ratio
       def tall
-        filter << "Aspect:Tall"
+        filter << 'Aspect:Tall'
       end
       
       # Restrict images to those that are in color
       def color
-        filter << "Color:Color"
+        filter << 'Color:Color'
       end
       
       # Restrict images to those which contain photos
       def photo
-        filter << "Style:Photo"
+        filter << 'Style:Photo'
       end
       
       # Restrict images to those which contain graphics or illustrations
       def graphics
-        filter << "Style:Graphics"
+        filter << 'Style:Graphics'
       end
       
       # Restrict images to those that are in black and white
       def monochrome
-        filter << "Color:Monochrome"
+        filter << 'Color:Monochrome'
       end
       
       # Restrict images to those which contain faces
