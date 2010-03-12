@@ -58,6 +58,16 @@ module Binged
       def tall
         filter << "Aspect:Tall"
       end
+      
+      # Restrict images to those that are in color
+      def color
+        filter << "Color:Color"
+      end
+      
+      # Restrict images to those that are in black and white
+      def monochrome
+        filter << "Color:Monochrome"
+      end
 
       private
 

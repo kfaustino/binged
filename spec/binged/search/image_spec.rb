@@ -62,6 +62,19 @@ module Binged
           end
 
         end
+        
+        describe "color" do
+          
+          %w(Color Monochrome).each do |color|
+            
+            it "should restrict image results to those which are in #{color}" do
+              @search.send color.downcase.to_sym
+              @search.query["Image.Filters"].should include("Color:#{color}")
+            end
+            
+          end
+          
+        end
 
       end
 
