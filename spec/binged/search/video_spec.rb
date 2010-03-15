@@ -71,9 +71,46 @@ module Binged
       end
 
       context "fetching" do
+        before(:each) do
+          stub_get "http://api.bing.net/json.aspx?AppId=binged&Sources=video&JsonType=raw&Video.Count=20&Version=2.2&Query=RailsConf&Video.Offset=0", "videos.json"
+          @search.containing('RailsConf')
+          @response = @search.fetch
+        end
+
+        it "should cache fetch to eliminate multiple calls to the api" do
+          Video.should_not_receive(:perform)
+          @search.fetch
+        end
+
+        it "should return the results of the search" do
+          @response.results.size.should == 20
+        end
+
+        it "should support dot notation" do
+          video = @response.results.first
+          video.title.should == 'RailsConf Europe 08: Jeremy Kemper (37signals), Performance on Rails'
+          video.play_url.should == 'http://railsconfeurope.blip.tv/file/1555719/'
+          video.source_title.should == 'blip.tv'
+          video.static_thumbnail.should_not be_nil
+        end
+
       end
 
       context "iterating over results" do
+        
+        before(:each) do
+          stub_get "http://api.bing.net/json.aspx?AppId=binged&Sources=video&JsonType=raw&Video.Count=20&Version=2.2&Query=RailsConf&Video.Offset=0", "videos.json"
+          @search.containing('RailsConf')
+        end
+        
+        it "should be able to iterate through results" do
+          @search.should respond_to(:each)
+        end
+        
+        it "should have items" do
+          @search.each {|result| result.should_not be_nil }
+        end
+        
       end
 
     end

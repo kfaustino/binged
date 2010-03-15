@@ -15,6 +15,7 @@ module Binged
         super(client, query)
         @source = :video
         set_paging_defaults
+        create_filter_callback
       end
 
       # Change the sorting of the video search
@@ -31,7 +32,7 @@ module Binged
       end
 
       # Video duration is less than 300 seconds
-      # 
+      #
       # @return [self]
       def short
         filter << 'Duration:Short'
@@ -39,7 +40,7 @@ module Binged
       end
 
       # Video duration is between 300 seconds and 12000 seconds
-      # 
+      #
       # @return [self]
       def medium
         filter << 'Duration:Medium'
@@ -47,7 +48,7 @@ module Binged
       end
 
       # Video duration is larger than 12000 seconds
-      # 
+      #
       # @return [self]
       def long
         filter << 'Duration:Long'
@@ -55,7 +56,7 @@ module Binged
       end
 
       # Restrict videos to those which have a standard aspect ratio
-      # 
+      #
       # @return [self]
       def standard
         filter << 'Aspect:Standard'
@@ -63,7 +64,7 @@ module Binged
       end
 
       # Restrict videos to those which have a widescreen aspect ratio
-      # 
+      #
       # @return [self]
       def widescreen
         filter << 'Aspect:Widescreen'
@@ -71,7 +72,7 @@ module Binged
       end
 
       # Restrict videos to those which have a certain resolution
-      # 
+      #
       # @param [Symbol] type A symbol of a {SUPPORTED_RESOLUTIONS}
       # @return [self]
       def resolution(type)
@@ -80,6 +81,11 @@ module Binged
       end
 
       private
+
+        def create_filter_callback
+          key = 'Video.Filters'
+          @callbacks << Proc.new { |query| query[key] = query[key].join('+') if query[key] }
+        end
 
         def filter
           @query['Video.Filters'] ||= []
