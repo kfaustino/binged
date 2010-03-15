@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: Binged::Client</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><a href="../Binged.html" title="Binged (module)">Binged</a></span>
+     &raquo; 
+    <span class="title">Client</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Binged::Client 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Binged::Client</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/binged/client.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+A client which encapsulates the Bing API
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#api_key-instance_method" title="#api_key (instance method)">- (Object) <strong>api_key</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the value of attribute api_key.
+
+</span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <h2>Instance Method Summary</h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#image-instance_method" title="#image (instance method)">- (Object) <strong>image</strong>(query = '') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Create a image search through Bing.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Client) <strong>initialize</strong>(options = {}) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+A new instance of Client.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#video-instance_method" title="#video (instance method)">- (Object) <strong>video</strong>(query = '') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Create a video search through Bing.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#web-instance_method" title="#web (instance method)">- (Object) <strong>web</strong>(query = '') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Create a web search through Bing.
+
+</span>
+  
+</li>
+
+    
+  </ul>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><a href="" title="Binged::Client (class)">Client</a></tt>) <strong>initialize</strong>(options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of Client
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        
+the options to create a client with.
+
+
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <h3>Options Hash (<tt>options</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="name">:api_key</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;
+The Bing API key used to make all API calls.
+
+
+        </tr>
+      
+    </ul>
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/client.rb', line 10</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='@api_key ivar id'>@api_key</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:api_key</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='Binged constant id'>Binged</span><span class='dot token'>.</span><span class='api_key identifier id'>api_key</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="api_key=-instance_method"></span>
+      <span id="api_key-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="api_key-instance_method">
+  
+    - (<tt>Object</tt>) <strong>api_key</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute api_key
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/client.rb', line 6</span>
+
+<span class='def def kw'>def</span> <span class='api_key identifier id'>api_key</span>
+  <span class='@api_key ivar id'>@api_key</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="image-instance_method">
+  
+    - (<tt>Object</tt>) <strong>image</strong>(query = '') 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a image search through Bing
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>query</span>
+      
+      
+        <em class="default">(defaults to: <tt>''</tt>)</em>
+      
+      
+        &mdash;
+        
+The search term to be sent to Bing
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/client.rb', line 24</span>
+
+<span class='def def kw'>def</span> <span class='image identifier id'>image</span><span class='lparen token'>(</span><span class='query identifier id'>query</span><span class='assign token'>=</span><span class='string val'>''</span><span class='rparen token'>)</span>
+  <span class='Search constant id'>Search</span><span class='colon2 op'>::</span><span class='Image constant id'>Image</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span><span class='query identifier id'>query</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="video-instance_method">
+  
+    - (<tt>Object</tt>) <strong>video</strong>(query = '') 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a video search through Bing
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>query</span>
+      
+      
+        <em class="default">(defaults to: <tt>''</tt>)</em>
+      
+      
+        &mdash;
+        
+The search term to be sent to Bing
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/client.rb', line 31</span>
+
+<span class='def def kw'>def</span> <span class='video identifier id'>video</span><span class='lparen token'>(</span><span class='query identifier id'>query</span><span class='assign token'>=</span><span class='string val'>''</span><span class='rparen token'>)</span>
+  <span class='Search constant id'>Search</span><span class='colon2 op'>::</span><span class='Video constant id'>Video</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span><span class='query identifier id'>query</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="web-instance_method">
+  
+    - (<tt>Object</tt>) <strong>web</strong>(query = '') 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a web search through Bing
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>query</span>
+      
+      
+        <em class="default">(defaults to: <tt>''</tt>)</em>
+      
+      
+        &mdash;
+        
+The search term to be sent to Bing
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/client.rb', line 17</span>
+
+<span class='def def kw'>def</span> <span class='web identifier id'>web</span><span class='lparen token'>(</span><span class='query identifier id'>query</span><span class='assign token'>=</span><span class='string val'>''</span><span class='rparen token'>)</span>
+  <span class='Search constant id'>Search</span><span class='colon2 op'>::</span><span class='Web constant id'>Web</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span><span class='query identifier id'>query</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Mar 15 11:03:39 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

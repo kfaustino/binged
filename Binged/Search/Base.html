@@ -1,0 +1,972 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: Binged::Search::Base</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (B)</a> &raquo; 
+    <span class='title'><a href="../../Binged.html" title="Binged (module)">Binged</a></span> &raquo; <span class='title'><a href="../Search.html" title="Binged::Search (module)">Search</a></span>
+     &raquo; 
+    <span class="title">Base</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Binged::Search::Base 
+  <span class="abstract note title">Abstract</span>
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Binged::Search::Base</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">Enumerable</dd>
+      
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/binged/search/base.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p class="note abstract">
+  <strong>This class is abstract.</strong> 
+  
+Subclass and set @source to implement a custom Searchable class
+
+
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><a href="Image.html" title="Binged::Search::Image (class)">Image</a>, <a href="Video.html" title="Binged::Search::Video (class)">Video</a>, <a href="Web.html" title="Binged::Search::Web (class)">Web</a></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="BASE_URI-constant" class="">BASE_URI =
+            <span class="summary_desc"></span>
+        </dt>
+        <dd><pre class="code"><span class='string val'>'http://api.bing.net/json.aspx?'</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+  
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#callbacks-instance_method" title="#callbacks (instance method)">- (Object) <strong>callbacks</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the value of attribute callbacks.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#client-instance_method" title="#client (instance method)">- (Object) <strong>client</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the value of attribute client.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query-instance_method" title="#query (instance method)">- (Object) <strong>query</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the value of attribute query.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#source-instance_method" title="#source (instance method)">- (Object) <strong>source</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the value of attribute source.
+
+</span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <h2>Instance Method Summary</h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clear-instance_method" title="#clear (instance method)">- (Object) <strong>clear</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Clears all filters to perform a new search.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#containing-instance_method" title="#containing (instance method)">- (self) <strong>containing</strong>(query) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Add query to search.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch-instance_method" title="#fetch (instance method)">- (Hash) <strong>fetch</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Retrieve results of the web search.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Base) <strong>initialize</strong>(client, query = nil) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+A new instance of Base.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#perform-instance_method" title="#perform (instance method)">- (Hash) <strong>perform</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Performs a GET call to Bing API.
+
+</span>
+  
+</li>
+
+    
+  </ul>
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><a href="" title="Binged::Search::Base (class)">Base</a></tt>) <strong>initialize</strong>(client, query = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of Base
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Client.html" title="Binged::Client (class)">Binged::Client</a></tt>)</span>
+      
+      
+        <span class='name'>client</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>query</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        
+The search term to be sent to Bing
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/search/base.rb', line 13</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='query identifier id'>query</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='@client ivar id'>@client</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span>
+  <span class='@callbacks ivar id'>@callbacks</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='reset_query identifier id'>reset_query</span>
+  <span class='containing identifier id'>containing</span><span class='lparen token'>(</span><span class='query identifier id'>query</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='query identifier id'>query</span> <span class='andop op'>&amp;&amp;</span> <span class='query identifier id'>query</span><span class='dot token'>.</span><span class='strip identifier id'>strip</span> <span class='neq op'>!=</span> <span class='string val'>''</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="callbacks-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="callbacks-instance_method">
+  
+    - (<tt>Object</tt>) <strong>callbacks</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute callbacks
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/search/base.rb', line 71</span>
+
+<span class='def def kw'>def</span> <span class='callbacks identifier id'>callbacks</span>
+  <span class='@callbacks ivar id'>@callbacks</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="client-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="client-instance_method">
+  
+    - (<tt>Object</tt>) <strong>client</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute client
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/search/base.rb', line 7</span>
+
+<span class='def def kw'>def</span> <span class='client identifier id'>client</span>
+  <span class='@client ivar id'>@client</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="query-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="query-instance_method">
+  
+    - (<tt>Object</tt>) <strong>query</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute query
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/search/base.rb', line 7</span>
+
+<span class='def def kw'>def</span> <span class='query identifier id'>query</span>
+  <span class='@query ivar id'>@query</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="source-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="source-instance_method">
+  
+    - (<tt>Object</tt>) <strong>source</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute source
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/search/base.rb', line 7</span>
+
+<span class='def def kw'>def</span> <span class='source identifier id'>source</span>
+  <span class='@source ivar id'>@source</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="clear-instance_method">
+  
+    - (<tt>Object</tt>) <strong>clear</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Clears all filters to perform a new search
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/search/base.rb', line 30</span>
+
+<span class='def def kw'>def</span> <span class='clear identifier id'>clear</span>
+  <span class='@fetch ivar id'>@fetch</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+  <span class='reset_query identifier id'>reset_query</span>
+  <span class='self self kw'>self</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="containing-instance_method">
+  
+    - (<tt>self</tt>) <strong>containing</strong>(query) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Add query to search
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>query</span>
+      
+      
+      
+        &mdash;
+        
+The search term to be sent to Bing
+
+
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/search/base.rb', line 24</span>
+
+<span class='def def kw'>def</span> <span class='containing identifier id'>containing</span><span class='lparen token'>(</span><span class='query identifier id'>query</span><span class='rparen token'>)</span>
+  <span class='@query ivar id'>@query</span><span class='lbrack token'>[</span><span class='symbol val'>:Query</span><span class='rbrack token'>]</span> <span class='lshft op'>&lt;&lt;</span> <span class='query identifier id'>query</span>
+  <span class='self self kw'>self</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each-instance_method">
+  
+    - (<tt>Object</tt>) <strong>each</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yield Returns:</h3>
+<ul class="yieldreturn">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        
+A result from a Bing query
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/search/base.rb', line 65</span>
+
+<span class='def def kw'>def</span> <span class='each identifier id'>each</span>
+  <span class='fetch identifier id'>fetch</span><span class='lparen token'>(</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='results identifier id'>results</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='r identifier id'>r</span><span class='bitor op'>|</span> <span class='yield yield kw'>yield</span> <span class='r identifier id'>r</span> <span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fetch-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>fetch</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Retrieve results of the web search. Limited to first 1000 results.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        
+A hash of the results returned from Bing
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/search/base.rb', line 39</span>
+
+<span class='def def kw'>def</span> <span class='fetch identifier id'>fetch</span>
+  <span class='if if kw'>if</span> <span class='@fetch ivar id'>@fetch</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+    <span class='response identifier id'>response</span> <span class='assign token'>=</span> <span class='perform identifier id'>perform</span>
+    <span class='@fetch ivar id'>@fetch</span> <span class='assign token'>=</span> <span class='Hashie constant id'>Hashie</span><span class='colon2 op'>::</span><span class='Mash constant id'>Mash</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>&quot;SearchResponse&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='source identifier id'>source</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='capitalize identifier id'>capitalize</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='@fetch ivar id'>@fetch</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="perform-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>perform</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Performs a GET call to Bing API
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        
+Hash of Bing API response
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/binged/search/base.rb', line 51</span>
+
+<span class='def def kw'>def</span> <span class='perform identifier id'>perform</span>
+  <span class='url identifier id'>url</span> <span class='assign token'>=</span> <span class='URI constant id'>URI</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span> <span class='BASE_URI constant id'>BASE_URI</span>
+  <span class='query identifier id'>query</span> <span class='assign token'>=</span> <span class='@query ivar id'>@query</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span>
+  <span class='query identifier id'>query</span><span class='lbrack token'>[</span><span class='symbol val'>:Query</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='query identifier id'>query</span><span class='lbrack token'>[</span><span class='symbol val'>:Query</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>' '</span><span class='rparen token'>)</span>
+  <span class='query identifier id'>query</span><span class='lbrack token'>[</span><span class='symbol val'>:Sources</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='source identifier id'>source</span>
+  <span class='callbacks identifier id'>callbacks</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='callback identifier id'>callback</span><span class='bitor op'>|</span> <span class='callback identifier id'>callback</span><span class='dot token'>.</span><span class='call identifier id'>call</span><span class='lparen token'>(</span><span class='query identifier id'>query</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+  <span class='query_options identifier id'>query_options</span> <span class='assign token'>=</span> <span class='default_options identifier id'>default_options</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='query identifier id'>query</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_params identifier id'>to_params</span>
+  <span class='query_options identifier id'>query_options</span><span class='dot token'>.</span><span class='gsub! fid id'>gsub!</span> <span class='string val'>'%2B'</span><span class='comma token'>,</span> <span class='string val'>'+'</span>
+  <span class='url identifier id'>url</span><span class='dot token'>.</span><span class='query identifier id'>query</span> <span class='assign token'>=</span> <span class='query_options identifier id'>query_options</span>
+  <span class='response identifier id'>response</span> <span class='assign token'>=</span> <span class='Net constant id'>Net</span><span class='colon2 op'>::</span><span class='HTTP constant id'>HTTP</span><span class='dot token'>.</span><span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='url identifier id'>url</span><span class='rparen token'>)</span>
+  <span class='Crack constant id'>Crack</span><span class='colon2 op'>::</span><span class='JSON constant id'>JSON</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='response identifier id'>response</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Mar 15 11:03:40 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
