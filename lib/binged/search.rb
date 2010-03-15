@@ -5,6 +5,7 @@ module Binged
     autoload :Base, "binged/search/base"
     autoload :Web, "binged/search/web"
     autoload :Image, "binged/search/image"
+    autoload :Video, "binged/search/video"
 
     module Pageable
       

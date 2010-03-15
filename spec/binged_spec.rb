@@ -25,6 +25,10 @@ describe "Binged" do
       @client.image.should be_instance_of(Binged::Search::Image)
     end
     
+    it "should provide an interface to video search" do
+      @client.video.should be_instance_of(Binged::Search::Video)
+    end
+    
   end
 
 end

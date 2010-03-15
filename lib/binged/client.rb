@@ -24,6 +24,13 @@ module Binged
     def image(query='')
       Search::Image.new(self,query)
     end
+    
+    # Create a video search through Bing
+    # 
+    # @param [String] query The search term to be sent to Bing
+    def video(query='')
+      Search::Video.new(self,query)
+    end
 
   end
 
