@@ -1,3 +1,8 @@
+== 0.3.0 2010-03-15
+
+=== New features
+* Added an Video source provider to allow for Video searching with Binged
+
 == 0.2.0 2010-03-12
   
 === New features
