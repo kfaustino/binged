@@ -13,23 +13,21 @@ require 'binged/hashie_extensions'
 module Binged
   autoload :Client, "binged/client"
   autoload :Search, "binged/search"
-    
+
+  extend self
+
   # Configure global options for Binged
-  # 
+  #
   # For example:
-  # 
+  #
   #     Binged.configure do |config|
   #       config.api_key = 'api_key'
   #     end
-  def self.configure
+  attr_accessor :api_key
+
+  def configure
     yield self
     true
   end
 
-  class << self
-    attr_accessor :api_key
-  end
-
 end
-
-
