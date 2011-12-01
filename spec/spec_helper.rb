@@ -1,8 +1,7 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'rubygems'
-require 'spec'
-require 'spec/autorun'
+require 'rspec'
 require 'fakeweb'
 require 'binged'
 
@@ -10,7 +9,7 @@ FakeWeb.allow_net_connect = false
 Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
 
 Spec::Runner.configure do |config|
-  
+
 end
 
 def bing_url(url)
@@ -24,7 +23,7 @@ def fixture_file(filename)
 end
 
 def stub_get(url, filename, options={})
-  fakeweb_options = {:response => fixture_file(filename)}.merge(options)  
+  fakeweb_options = {:response => fixture_file(filename)}.merge(options)
   FakeWeb.register_uri(:get, url, fakeweb_options)
 end
 
