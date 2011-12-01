@@ -67,12 +67,14 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<hashie>, ["~> 0.1.0"])
       s.add_runtime_dependency(%q<crack>, [">= 0.1.6"])
+      s.add_runtime_dependency(%q<activesupport>, [">=3.1.3"])
       s.add_development_dependency(%q<rspec>, [">= 1.3.0"])
       s.add_development_dependency(%q<fakeweb>, [">= 1.2.8"])
       s.add_development_dependency(%q<yard>, [">= 0"])
     else
       s.add_dependency(%q<hashie>, ["~> 0.1.0"])
       s.add_dependency(%q<crack>, [">= 0.1.6"])
+      s.add_dependency(%q<activesupport>, [">=3.1.3"])
       s.add_dependency(%q<rspec>, [">= 1.3.0"])
       s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
       s.add_dependency(%q<yard>, [">= 0"])
@@ -80,6 +82,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<hashie>, ["~> 0.1.0"])
     s.add_dependency(%q<crack>, [">= 0.1.6"])
+    s.add_dependency(%q<activesupport>, [">=3.1.3"])
     s.add_dependency(%q<rspec>, [">= 1.3.0"])
     s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
     s.add_dependency(%q<yard>, [">= 0"])
