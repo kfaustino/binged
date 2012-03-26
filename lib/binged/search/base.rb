@@ -58,7 +58,7 @@ module Binged
         query_options.gsub! '%2B', '+'
         url.query = query_options
         response = Net::HTTP.get(url)
-        Crack::JSON.parse(response)
+        JSON.parse(response)
       end
 
       # @yieldreturn [Hash] A result from a Bing query

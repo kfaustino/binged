@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem "hashie", "~>0.1.0"
-gem "crack", ">=0.1.6"
 gem 'activesupport', '>=3.0.0'
 
 group :development do
