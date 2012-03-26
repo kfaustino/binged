@@ -1,8 +1,8 @@
+require 'active_support/core_ext/object/to_query'
 require 'crack'
 require 'hashie'
 require 'net/http'
 require 'uri'
-require 'active_support/core_ext/object'
 
 Hash.send :include, Hashie::HashExtensions
 require 'binged/hashie_extensions'

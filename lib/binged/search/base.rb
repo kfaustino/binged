@@ -54,7 +54,7 @@ module Binged
         query[:Query] = query[:Query].join(' ')
         query[:Sources] = self.source
         callbacks.each {|callback| callback.call(query) }
-        query_options = default_options.merge(query).to_param
+        query_options = default_options.merge(query).to_query
         query_options.gsub! '%2B', '+'
         url.query = query_options
         response = Net::HTTP.get(url)
