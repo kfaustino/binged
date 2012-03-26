@@ -17,6 +17,16 @@ rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
 
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new do |t|
+  t.pattern = 'spec/**/*_spec.rb'
+end
+
+RSpec::Core::RakeTask.new(:rcov) do |t|
+  t.pattern = 'spec/**/*_spec.rb'
+  t.rcov = true
+end
+
 begin
   require 'yard'
   YARD::Rake::YardocTask.new
