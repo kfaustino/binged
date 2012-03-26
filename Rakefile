@@ -27,6 +27,8 @@ RSpec::Core::RakeTask.new(:rcov) do |t|
   t.rcov = true
 end
 
+task :default => :spec
+
 begin
   require 'yard'
   YARD::Rake::YardocTask.new
