@@ -41,7 +41,7 @@ module Binged
         it "should support dot notation" do
           result = @response.results.first
           result.title.should == "Ruby Programming Language"
-          result.description.should == "Ruby is... A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is ..."
+          result.description.should == "Ruby is… A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is ..."
           result.url.should == "http://www.ruby-lang.org/en/"
         end
 
