@@ -39,7 +39,7 @@ Binged allows for configuration to be done once using a configure block. To use 
 
     # Find all portrait Matz images with a wide aspect ratio
     image_search = Binged::Client.new.image
-    image_search.containing('Yukihiro Matsumoto').portrait.wide.each {|image| pp image}
+    image_search.containing('Yukihiro Matsumoto').portrait.safe_search(:strict).wide.each {|image| pp image}
     
 ## Note on Patches/Pull Requests
  
