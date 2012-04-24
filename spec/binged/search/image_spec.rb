@@ -36,6 +36,20 @@ module Binged
 
         end
 
+        describe "adult" do
+          [:off, :moderate, :strict].each do |level|
+            it "should filter with adult content #{level}" do
+              @search.adult(level)
+              @search.query[:Adult].should == level
+            end
+
+            it "should filter with safe search #{level}" do
+              @search.safe_search(level)
+              @search.query[:Adult].should == level
+            end
+          end
+        end
+
         describe "size" do
 
           it "should filter for images with a specified height in pixels" do

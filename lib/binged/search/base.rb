@@ -8,6 +8,8 @@ module Binged
 
       BASE_URI = 'http://api.bing.net/json.aspx?'
 
+      SUPPORTED_ADULT_OPTIONS = [:off, :moderate, :strict]
+
       # @param [Binged::Client] client
       # @param [String] query The search term to be sent to Bing
       def initialize(client, query=nil)
@@ -25,6 +27,12 @@ module Binged
         @query[:Query] << query
         self
       end
+
+      def adult(adult_option)
+        @query[:Adult] = adult_option if SUPPORTED_ADULT_OPTIONS.include?(adult_option)
+        self
+      end
+      alias safe_search adult
 
       # Clears all filters to perform a new search
       def clear
