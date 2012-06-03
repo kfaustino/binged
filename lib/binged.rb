@@ -4,7 +4,6 @@ require 'hashie'
 require 'net/http'
 require 'uri'
 
-Hash.send :include, Hashie::HashExtensions
 require 'binged/hashie_extensions'
 
 # The module that contains everything Binged related
